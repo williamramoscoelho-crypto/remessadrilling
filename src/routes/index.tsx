@@ -6,6 +6,7 @@ import {
   ClipboardCopy,
   CloudOff,
   FolderOpen,
+  LayoutDashboard,
   Loader2,
   Plus,
   RefreshCw,
@@ -253,7 +254,7 @@ function App() {
           <img
             src={logo}
             alt="Drilling do Brasil"
-            className="h-9 w-auto shrink-0 brightness-0 invert"
+            className="h-9 w-auto shrink-0 rounded bg-white p-0.5"
           />
           <div className="min-w-0 flex-1">
             <h1 className="truncate text-xs uppercase tracking-widest opacity-80">
@@ -261,6 +262,12 @@ function App() {
             </h1>
           </div>
 
+          <Link
+            to="/dashboard"
+            className="flex items-center gap-1.5 rounded-full bg-primary-foreground/15 px-2.5 py-1 text-[11px] font-semibold uppercase"
+          >
+            <LayoutDashboard className="size-3.5" /> Dashboard
+          </Link>
           <Link
             to="/arquivos"
             className="flex items-center gap-1.5 rounded-full bg-primary-foreground/15 px-2.5 py-1 text-[11px] font-semibold uppercase"
