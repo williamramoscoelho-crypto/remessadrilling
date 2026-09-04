@@ -253,7 +253,7 @@ function App() {
           <img
             src={logo}
             alt="Drilling do Brasil"
-            className="h-9 w-auto shrink-0 brightness-0 invert"
+            className="h-9 w-auto shrink-0 rounded bg-white p-0.5"
           />
           <div className="min-w-0 flex-1">
             <h1 className="truncate text-xs uppercase tracking-widest opacity-80">

@@ -94,7 +94,11 @@ function Arquivos() {
           >
             <ArrowLeft className="size-5" />
           </Link>
-          <img src={logo} alt="Drilling do Brasil" className="h-7 w-auto brightness-0 invert" />
+          <img
+            src={logo}
+            alt="Drilling do Brasil"
+            className="h-7 w-auto rounded bg-white p-0.5"
+          />
           <div className="min-w-0 flex-1">
             <h1 className="truncate text-base font-bold uppercase leading-none">Arquivos</h1>
             <p className="text-[11px] uppercase tracking-widest opacity-80">

@@ -46,10 +46,12 @@ function cabecalho(doc: jsPDF, f: FormularioFiscal, protocolo: string, emitidoEm
 
   let x = M;
   if (logoEl) {
-    const h = 12;
+    const h = 16;
     const w = (logoEl.naturalWidth / logoEl.naturalHeight) * h || h;
     try {
-      doc.addImage(logoEl, "PNG", M, 5, w, h);
+      doc.setFillColor(255, 255, 255);
+      doc.roundedRect(M - 2, 4, w + 4, h + 6, 2, 2, "F");
+      doc.addImage(logoEl, "PNG", M, 7, w, h);
       x = M + w + 5;
     } catch {
       /* logo indisponível */
