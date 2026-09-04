@@ -6,6 +6,7 @@ import {
   ClipboardCopy,
   CloudOff,
   FolderOpen,
+  LayoutDashboard,
   Loader2,
   Plus,
   RefreshCw,
