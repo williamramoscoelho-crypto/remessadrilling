@@ -262,6 +262,12 @@ function App() {
           </div>
 
           <Link
+            to="/dashboard"
+            className="flex items-center gap-1.5 rounded-full bg-primary-foreground/15 px-2.5 py-1 text-[11px] font-semibold uppercase"
+          >
+            <LayoutDashboard className="size-3.5" /> Dashboard
+          </Link>
+          <Link
             to="/arquivos"
             className="flex items-center gap-1.5 rounded-full bg-primary-foreground/15 px-2.5 py-1 text-[11px] font-semibold uppercase"
           >

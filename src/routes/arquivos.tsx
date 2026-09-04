@@ -6,6 +6,7 @@ import {
   ClipboardCopy,
   Download,
   FileText,
+  LayoutDashboard,
   Pencil,
   Search,
   Trash2,
