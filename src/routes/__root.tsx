@@ -89,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "App da Drilling do Brasil para pré-emissão rápida de Nota Fiscal e CTe no canteiro de obras.",
       },
       { name: "author", content: "Drilling do Brasil" },
-      { name: "theme-color", content: "#17457f" },
+      { name: "theme-color", content: "#046bd2" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-title", content: "Drilling Fiscal" },
