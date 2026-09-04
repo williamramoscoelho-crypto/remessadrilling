@@ -35,9 +35,8 @@ import { baixarPdf, compartilharPdf } from "@/lib/pdf";
 import { lerArquivo, salvarArquivo } from "@/lib/arquivos";
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>): { arquivo?: string } => ({
-    arquivo: typeof search["arquivo"] === "string" ? search["arquivo"] : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { arquivo?: string } =>
+    typeof search["arquivo"] === "string" ? { arquivo: search["arquivo"] } : {},
   head: () => ({
     meta: [
       { title: "Drilling Fiscal | Pré-emissão de NF e CTe" },
@@ -180,7 +179,10 @@ function App() {
   /** Salva/atualiza o arquivo no histórico local do dispositivo. */
   const registrarArquivo = (dados: FormularioFiscal, novoProtocolo?: string) => {
     try {
-      const salvo = salvarArquivo(dados, { id: arquivoId, protocolo: novoProtocolo ?? protocolo });
+      const salvo = salvarArquivo(dados, {
+        ...(arquivoId ? { id: arquivoId } : {}),
+        protocolo: novoProtocolo ?? protocolo,
+      });
       setArquivoId(salvo.id);
     } catch {
       /* histórico é opcional — nunca bloqueia o fluxo de emissão */
