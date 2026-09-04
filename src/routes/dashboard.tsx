@@ -435,7 +435,7 @@ function DashboardPage() {
                       }
                     />
                     <Tooltip
-                      formatter={(v: number | string | undefined) => [
+                      formatter={(v: unknown) => [
                         moeda(Number(v ?? 0)),
                         "Valor",
                       ]}
@@ -471,7 +471,7 @@ function DashboardPage() {
                         stroke="#7c8698"
                       />
                       <Tooltip
-                        formatter={(v: number | string | undefined) => [
+                        formatter={(v: unknown) => [
                           moeda(Number(v ?? 0)),
                           "Valor",
                         ]}
