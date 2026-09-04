@@ -1,0 +1,52 @@
+{
+  "id": "/",
+  "name": "Drilling Fiscal - Pré-emissão NF/CTe",
+  "short_name": "Drilling Fiscal",
+  "description": "Formulário rápido de pré-emissão de Nota Fiscal (Remessa/Reparo) e CTe da Drilling do Brasil.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#0f1b2d",
+  "theme_color": "#046bd2",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["business", "productivity"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nova pré-emissão",
+      "short_name": "Nova emissão",
+      "description": "Abrir o formulário de pré-emissão de NF/CTe",
+      "url": "/?shortcut=nova",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}
