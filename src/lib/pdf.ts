@@ -1,4 +1,5 @@
 import { jsPDF } from "jspdf";
+import logoUrl from "@/assets/drilling-logo.png";
 import {
   moeda,
   origemFinal,
@@ -7,8 +8,8 @@ import {
   type FormularioFiscal,
 } from "./fiscal";
 
-const AZUL: [number, number, number] = [23, 69, 127];
-const AZUL_CLARO: [number, number, number] = [235, 240, 248];
+const AZUL: [number, number, number] = [4, 107, 210];
+const AZUL_CLARO: [number, number, number] = [234, 242, 252];
 const AMBAR: [number, number, number] = [214, 143, 20];
 const GRAFITE: [number, number, number] = [38, 44, 54];
 const CINZA: [number, number, number] = [110, 118, 130];
@@ -27,6 +28,15 @@ function texto(doc: jsPDF, t: string, x: number, y: number) {
   doc.text(t || "-", x, y);
 }
 
+let logoEl: HTMLImageElement | null = null;
+if (typeof window !== "undefined") {
+  const img = new Image();
+  img.src = logoUrl;
+  img.onload = () => {
+    logoEl = img;
+  };
+}
+
 function cabecalho(doc: jsPDF, f: FormularioFiscal, protocolo: string, emitidoEm: Date) {
   const romaneio = f.documento === "Romaneio";
   doc.setFillColor(...AZUL);
@@ -34,19 +44,31 @@ function cabecalho(doc: jsPDF, f: FormularioFiscal, protocolo: string, emitidoEm
   doc.setFillColor(...AMBAR);
   doc.rect(0, 30, 210, 1.6, "F");
 
+  let x = M;
+  if (logoEl) {
+    const h = 12;
+    const w = (logoEl.naturalWidth / logoEl.naturalHeight) * h || h;
+    try {
+      doc.addImage(logoEl, "PNG", M, 5, w, h);
+      x = M + w + 5;
+    } catch {
+      /* logo indisponível */
+    }
+  }
+
   doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(15);
-  doc.text("DRILLING DO BRASIL", M, 13);
+  doc.text("DRILLING DO BRASIL", x, 13);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8);
   doc.setTextColor(214, 226, 244);
-  doc.text("Fundações e Sondagens · Controle Logístico e Fiscal", M, 18.5);
+  doc.text("Fundações e Sondagens · Controle Logístico e Fiscal", x, 18.5);
   doc.text(
     romaneio
       ? "Documento interno de acompanhamento de carga"
       : "Documento de conferência para emissão de Nota Fiscal",
-    M,
+    x,
     23,
   );
 
